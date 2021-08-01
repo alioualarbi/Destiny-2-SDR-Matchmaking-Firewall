@@ -1,0 +1,10 @@
+    1  
+    2  ifconfig
+    3  sudo iptables --table nat --append POSTROUTING --out-interface eth0 -j MASQUERADE
+    4  iptables --table nat --append POSTROUTING --out-interface tun0 -j MASQUERADE
+    5  sudo iptables --table nat --append POSTROUTING --out-interface tun0 -j MASQUERADE
+    6  sudo iptables --append FORWARD --in-interface eth1 -j ACCEPT
+    7  ls
+    8  cd Destiny-2-SDR-Matchmaking-Firewall
+    9  sudo history > history.txt
+   10  history
