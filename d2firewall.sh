@@ -61,7 +61,6 @@ auto_sniffer () {
 
   #sniff the ids based on platform
   if [ "$1" == "psn" ]; then
-    ngrep -l -q -W byline -d "$INTERFACE" "ps5" udp | grep --line-buffered -o -P 'ps5[0]{8}\K[A-F0-9]{7}' | tee -a "$2"
     ngrep -l -q -W byline -d "$INTERFACE" "psn-4" udp | grep --line-buffered -o -P 'psn-4[0]{8}\K[A-F0-9]{7}' | tee -a "$2" &
   elif [ "$1" == "xbox" ]; then
     ngrep -l -q -W byline -d "$INTERFACE" "xboxpwid:" udp | grep --line-buffered -o -P 'xboxpwid:\K[A-F0-9]{32}' | tee -a "$2" &
